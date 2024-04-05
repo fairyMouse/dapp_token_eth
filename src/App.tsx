@@ -1,6 +1,6 @@
 import { CssBaseline, Stack, ThemeProvider, createTheme } from "@mui/material"
 import TokenIndex from "./token/TokenIndex"
-import customTheme from "./theme"
+import customTheme from "./components"
 
 function App() {
   const theme = createTheme(customTheme("light"))

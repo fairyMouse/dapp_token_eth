@@ -1,24 +1,17 @@
-import {
-  Box,
-  Card,
-  Stack,
-  Tab,
-  Tabs,
-  Toolbar,
-  Typography,
-  alpha,
-} from "@mui/material"
+import { Box, Card, Stack, Tab, Tabs, Typography, alpha } from "@mui/material"
 import { useState } from "react"
 import TokenAppBar from "./TokenAppBar"
+import TokenBaseInfo from "./TokenBaseInfo"
+import TokenTransfer from "./TokenTransfer"
 
 const tabConfig = [
-  { label: "代币信息", value: "home" },
-  { label: "关于", value: "about" },
-  { label: "联系", value: "contact" },
+  { label: "基本信息", value: "base_info" },
+  { label: "转账", value: "transfer" },
+  { label: "水龙头", value: "faucet" },
 ]
 
 const TokenIndex = () => {
-  const [currentTab, setCurrentTab] = useState("home")
+  const [currentTab, setCurrentTab] = useState("base_info")
   return (
     <>
       <TokenAppBar />
@@ -37,13 +30,13 @@ const TokenIndex = () => {
       >
         <Stack
           className="flex-col-c"
-          spacing={2}
           sx={{
             pt: 20,
           }}
         >
-          <Typography variant="h4">我的测试代币</Typography>
+          <Typography variant="h4">测试Demo代币</Typography>
           <Tabs
+            sx={{ my: 3 }}
             value={currentTab}
             onChange={(event, newValue) => setCurrentTab(newValue)}
           >
@@ -51,24 +44,8 @@ const TokenIndex = () => {
               <Tab key={tab.value} label={tab.label} value={tab.value} />
             ))}
           </Tabs>
-          {/* <Box
-            sx={theme => ({
-              p: 2,
-              width: 500,
-              borderRadius: "10px",
-              outline: "1px solid",
-              outlineColor:
-                theme.palette.mode === "light"
-                  ? alpha("#BFCCD9", 0.5)
-                  : alpha("#9CCCFC", 0.1),
-              boxShadow:
-                theme.palette.mode === "light"
-                  ? `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`
-                  : `0 0 24px 12px ${alpha("#033363", 0.2)}`,
-            })}
-          >
-            123
-          </Box> */}
+          {currentTab === "base_info" && <TokenBaseInfo />}
+          {currentTab === "transfer" && <TokenTransfer />}
         </Stack>
       </Box>
     </>
