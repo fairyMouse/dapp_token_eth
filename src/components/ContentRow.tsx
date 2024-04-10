@@ -12,7 +12,7 @@ const ContentRow = (props: IContentRowProps) => {
       flexDirection={"row"}
       alignItems={"center"}
       justifyContent={"space-between"}
-      sx={{ width: 600 }}
+      sx={{ width: "100%" }}
     >
       <Typography variant="subtitle1">{title}：</Typography>
       <Typography variant="body1">{content}</Typography>

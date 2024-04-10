@@ -3,7 +3,7 @@ import ContentRow from "../components/ContentRow"
 
 const TokenBaseInfo = () => {
   return (
-    <Stack spacing={3}>
+    <Stack spacing={3} sx={{ width: "100%" }}>
       <ContentRow title="合约地址" content="xxx" />
       <ContentRow title="Token 名称" content="xxx" />
       <ContentRow title="Token 符号" content="xxx" />
